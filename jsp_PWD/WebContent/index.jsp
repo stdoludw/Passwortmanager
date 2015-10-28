@@ -34,6 +34,8 @@ session.setAttribute("site", CONTROLLER_Statments.caller.index.toString());
 		<input class="w3-input" type="password" name = "i_passwort" size = "20" value = "" > Passwort  <br>
 
     <input class="w3-input" type="text" name = "i_datenbank" size = "20" value = "" > Datenbank  <br>
+        <input class="w3-input" type="text" name = "i_host" size = "20" value = "" > IP  <br>
+    
 
 		<input class="w3-btn w3-light-blue" type="submit" value="Login">
 

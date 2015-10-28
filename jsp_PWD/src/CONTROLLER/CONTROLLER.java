@@ -1,7 +1,6 @@
 package CONTROLLER;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,7 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import MODEL.MODEL_Konto;
-import wox.serial.Easy;
 
 @WebServlet("/Controller")
 public class CONTROLLER extends HttpServlet {
@@ -28,7 +26,6 @@ public class CONTROLLER extends HttpServlet {
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
-	@SuppressWarnings("unchecked")
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		doGet(request, response);
@@ -36,16 +33,15 @@ public class CONTROLLER extends HttpServlet {
 		session = request.getSession(true);
 		String site = (String) session.getAttribute("site");
 
-		
-
 		if (site.equals(CONTROLLER_Statments.caller.index.toString())) {
 			
 			String name = request.getParameter("i_username");
 			String password = request.getParameter("i_passwort");
 			String db = request.getParameter("i_datenbank");
-			
+			String ip = request.getParameter("i_host");
+
 			as = CONTROLLER_Access.init();
-			as.login(name, password, db);
+			as.login(name, password, db,ip);
 
 			if (as.status()) {
 				as.auslesen();
@@ -73,48 +69,10 @@ public class CONTROLLER extends HttpServlet {
 		else if(site.equals(CONTROLLER_Statments.caller.Delete_Konto.toString()))
 		{		
 			MODEL_Konto tmp = new MODEL_Konto();
-			tmp.setMintID((int)session.getAttribute(CONTROLLER_Statments.session.Delete_Konto.toString()));
-			as.SQLModifizieren(tmp.SQLdelete());
+			as.SQLModifizieren(tmp.SQLdelete((int)session.getAttribute(CONTROLLER_Statments.session.Delete_Konto.toString())));
 			as.auslesen();
-
 		
 		}
-		
-		
-		
-		
-		else if(site.equals(CONTROLLER_Statments.caller.CONTROLLER_Import.toString()))
-		{
-			String path = CONTROLLER_Statments.upload.path.toString() +"/"+session.getAttribute(CONTROLLER_Statments.session.filename.toString());
-			
-			//xml to object
-			ArrayList<Object> xml2Obj = (ArrayList<Object>) Easy.load(path);
-			session.setAttribute(CONTROLLER_Statments.session.mvecModel.toString(),xml2Obj);
-			
-			//Truncate all table
-			as.SQLModifizieren(CONTROLLER_Statments.TruncateKonto());
-
-			
-			//SQL Insert
-			for(Object i : xml2Obj)
-			{
-				
-				
-					as.SQLModifizieren(((MODEL_Konto)i).SQLinsert(as.getAes()));
-
-				
-			
-			}
-				
-		}
-		else if(site.equals(CONTROLLER_Statments.caller.CONTROLLER_Export.toString()))
-		{
-			
-			Easy.save(as.getObjXML(), CONTROLLER_Statments.upload.path_xml.toString()); 
-
-		}
-		
-		
 		
 
 	}

@@ -33,7 +33,7 @@ public class CONTROLLER_Statments {
 				return "DELETE_Konto_SQL";
 			}
 		},
-		
+
 		CONTROLLER_Import {
 			public String toString() {
 				return "CONTROLLER_Import";
@@ -53,13 +53,12 @@ public class CONTROLLER_Statments {
 			}
 		},
 
-		filename
-		{
+		filename {
 			public String toString() {
 				return "filename";
 			}
 		},
-		
+
 		Insert_Konto {
 			public String toString() {
 				return "Insert_Konto";
@@ -73,14 +72,6 @@ public class CONTROLLER_Statments {
 		Delete_Konto {
 			public String toString() {
 				return "Delete_Konto";
-			}
-		},
-
-		
-
-		usermanagement_data {
-			public String toString() {
-				return "usermanagement_data";
 			}
 		}
 	}
@@ -96,42 +87,31 @@ public class CONTROLLER_Statments {
 				return "error.jsp";
 			}
 		},
-		data_xml
-		{
-			public String toString()
-			{
-				return "http://www.dfch-ludwig.de/xml/data.xml";
-			}
-		},
-		
-		Controller
-		{
-			public String toString()
-			{
+
+		Controller {
+			public String toString() {
 				return "Controller";
 			}
 		},
-		
-		
+
 		VIEW_Konto {
 			public String toString() {
 				return "VIEW_Konto.jsp";
 			}
 		},
-		
+
 		VIEW_UPDATE_Konto {
 			public String toString() {
 				return "VIEW_UPDATE_Konto.jsp";
 			}
 		},
-		
+
 		VIEW_INSERT_Konto {
 			public String toString() {
 				return "VIEW_INSERT_Konto.jsp";
 			}
 		}
-			
-		
+
 	};
 
 	public enum menu {
@@ -145,100 +125,78 @@ public class CONTROLLER_Statments {
 			public String toString() {
 				return "login-success.jsp";
 			}
-		},
-
-		Benutzerverwaltung {
-			public String toString() {
-				return "VIEW_Usermanagement.jsp";
-			}
-
-		}
-		,
-
-		Import {
-			public String toString() {
-				return "VIEW_Import.jsp";
-			}
-
-		},
-
-		Export {
-			public String toString() {
-				return "VIEW_Export.jsp";
-			}
-
 		}
 
 	};
-
-	public enum upload
-	{
-		
-	path
-	{
-		public String toString() {
-		return ("/home/dlu/tomcat/upload/");	
-		}
-	},
-	path_xml
-	{
-		public String toString() {
-		return ("/var/www/html/xml/data.xml");	
-		}
-	},
-	
-	}
-	
-
-	public static String TruncateKonto() {
-
-		return("truncate Konto;");
-	}
-	
-	
-	
 
 	public static String ViewKonto() {
 		return "select * from Konto k;";
 
 	}
 
-	
+	public static ArrayList<String> createDB() {
+		ArrayList<String> tmp = new ArrayList<String>();
 
-	public static String AddKonto(String name, String bankleitzahl, String kontonummer, String betrag, String minimum,
+		tmp.add("create database password_db;");
+		tmp.add("use password_db;");
+		tmp.add("create table konto(" + "mintID int NOT NULL AUTO_INCREMENT, " + " mstrDienst      varchar(255),"
+				+ " mstrUsername varchar(255)," + " mstrantworta varchar(255)," + " mstrantwortb varchar(255),"
+				+ " mstremail       varchar(255)," + " mstrerstellt    varchar(255)," + " mstrfragea varchar(255),"
+				+ " mstrfrageb varchar(255)," + " mstrgeanertam   varchar(255)," + " mstrkontakt varchar(255),"
+				+ " mstrpasswort varchar(255)," + " mstrresetemail  varchar(255)," + " mstrreseturl varchar(255),"
+				+ " mstrwebseite    varchar(255)" + " PRIMARY KEY (mintID)" + ");");
+		return tmp;
+	}
+
+	public static String AddKonto(String mstrDienst, String mstrUsername, String mstrantworta, String mstrantwortb,
+			String mstremail, String mstrerstellt, String mstrfragea, String mstrfrageb, String mstrgeanertam,
+			String mstrkontakt, String mstrpasswort, String mstrresetemail, String mstrreseturl, String mstrwebseite,
 			AES_verschluesselung aes) {
-		return "insert into Konto(name,bankleitzahl,kontonummer,betrag,minimum) Values(" + "\'"
-				+ aes.verschluesselnAES(name) + "\'" + "," + "\'" + aes.verschluesselnAES(bankleitzahl) + "\'" + ","
-				+ "\'" + aes.verschluesselnAES(kontonummer) + "\'" + "," + "\'" + aes.verschluesselnAES(betrag) + "\'"
-				+ "," + "\'" + aes.verschluesselnAES(minimum) + "\'" + ");";
-	}
-
-	
-
-	public static String UpdateKonto(String name, String bankleitzahl, String kontonummer, String betrag,
-			String minimum, int PK, AES_verschluesselung aes) {
-		return "update Konto set name = " + "\'" + aes.verschluesselnAES(name) + "\' ,bankleitzahl = " + "\'"
-				+ aes.verschluesselnAES(bankleitzahl) + "\'," + " kontonummer = " + "\'"
-				+ aes.verschluesselnAES(kontonummer) + "\' ,betrag = " + "\'" + aes.verschluesselnAES(betrag)
-				+ "\' ,minimum = " + "\'" + aes.verschluesselnAES(minimum) + "\' where K_ID = " + PK + ";";
+		return "insert into Konto  (mstrDienst, mstrUsername,  mstrantworta,  mstrantwortb,"
+				+ "mstremail,  mstrerstellt,  mstrfragea,  mstrfrageb,"
+				+ "mstrgeanertam, mstrkontakt, mstrpasswort, mstrresetemail,"
+				+ "mstrreseturl,   mstrwebseite ) VALUES( " + "\'" + aes.verschluesselnAES(mstrDienst) + "\', " + "\'"
+				+ aes.verschluesselnAES(mstrUsername) + "\' ," + "\'" + aes.verschluesselnAES(mstrantworta) + "\' ,"
+				+ "\'" + aes.verschluesselnAES(mstrantwortb) + "\' ," + "\'" + aes.verschluesselnAES(mstremail) + "\' ,"
+				+ "\'" + aes.verschluesselnAES(mstrerstellt) + "\' ," + "\'" + aes.verschluesselnAES(mstrfragea)
+				+ "\' ," + "\'" + aes.verschluesselnAES(mstrfrageb) + "\' ," + "\'"
+				+ aes.verschluesselnAES(mstrgeanertam) + "\' ," + "\'" + aes.verschluesselnAES(mstrkontakt) + "\' ,"
+				+ "\'" + aes.verschluesselnAES(mstrpasswort) + "\' ," + "\'" + aes.verschluesselnAES(mstrresetemail)
+				+ "\' ," + "\'" + aes.verschluesselnAES(mstrreseturl) + "\' ," + "\'"
+				+ aes.verschluesselnAES(mstrwebseite) + "\');";
 
 	}
-	
+
+	public static String UpdateKonto(int id, String mstrDienst, String mstrUsername, String mstrantworta,
+			String mstrantwortb, String mstremail, String mstrerstellt, String mstrfragea, String mstrfrageb,
+			String mstrgeanertam, String mstrkontakt, String mstrpasswort, String mstrresetemail, String mstrreseturl,
+			String mstrwebseite, AES_verschluesselung aes) {
+
+		return "update Konto set " + "mstrDienst = " + "\'" + aes.verschluesselnAES(mstrDienst) + "\', "
+				+ "mstrUsername =  " + "\'" + aes.verschluesselnAES(mstrUsername) + "\' ," + "mstrantworta =" + "\'"
+				+ aes.verschluesselnAES(mstrantworta) + "\' ," + "mstrantwortb =" + "\'"
+				+ aes.verschluesselnAES(mstrantwortb) + "\' ," + "mstremail =" + "\'" + aes.verschluesselnAES(mstremail)
+				+ "\' ," + "  mstrerstellt = " + "\'" + aes.verschluesselnAES(mstrerstellt) + "\' ," + " mstrfragea = "
+				+ "\'" + aes.verschluesselnAES(mstrfragea) + "\' ," + " mstrfrageb =" + "\'"
+				+ aes.verschluesselnAES(mstrfrageb) + "\' ," + "mstrgeanertam = " + "\'"
+				+ aes.verschluesselnAES(mstrgeanertam) + "\' ," + "mstrkontakt =" + "\'"
+				+ aes.verschluesselnAES(mstrkontakt) + "\' ," + " mstrpasswort =" + "\'"
+				+ aes.verschluesselnAES(mstrpasswort) + "\' ," + " mstrresetemail =" + "\'"
+				+ aes.verschluesselnAES(mstrresetemail) + "\' ," + "mstrreseturl =" + "\'"
+				+ aes.verschluesselnAES(mstrreseturl) + "\' ," + " mstrwebseite =" + "\'"
+				+ aes.verschluesselnAES(mstrwebseite) + "\'" + "where mintID = " + id;
+
+	}
 
 	public static String DeleteKonto(int PK) {
-		return "delete from Konto where K_ID = " + PK + ";";
+		return "delete from Konto where mintID = " + PK + ";";
 
 	}
-
 
 	public static ArrayList<String> createDatenbank(String name) {
 		ArrayList<String> mstrAttNew = new ArrayList<String>();
 
-		
-
 		return mstrAttNew;
 	}
-
-
 
 }

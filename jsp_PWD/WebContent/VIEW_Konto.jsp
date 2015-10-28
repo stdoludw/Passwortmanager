@@ -56,16 +56,11 @@
 	
 <%
 
-ArrayList<Object> tmp = (ArrayList<Object>)session.getAttribute(CONTROLLER_Statments.session.mvecModel.toString());
+ArrayList<MODEL_Konto> tmp = (ArrayList<MODEL_Konto>)session.getAttribute(CONTROLLER_Statments.session.mvecModel.toString());
 
 for (int i = 0;i<tmp.size();i++)
 {
 	
-	
-	if (tmp.get(i) instanceof MODEL_Konto) {
-	%>
-	<td>
-	<%
 	out.print(((MODEL_Konto)tmp.get(i)).getMintID());
 	%>
 	</td>
@@ -95,11 +90,7 @@ for (int i = 0;i<tmp.size();i++)
 	%>
 	</td>
 	<%
-	}
 	
-	%>
-	</tr>
-	<%
 	
 }
 

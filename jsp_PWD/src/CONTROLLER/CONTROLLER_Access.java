@@ -19,7 +19,7 @@ public class CONTROLLER_Access {
 	private  Connection mconCon;
 	private final int mintPort = 3306;
 	private  String mstrDatenbankName;
-	private final String mstrHostName = "dfch-ludwig.de";
+	private  String mstrHostName;
 
 	private  ArrayList<MODEL_Konto> mvecModel;
 	private  AES_verschluesselung aes;
@@ -46,7 +46,7 @@ public class CONTROLLER_Access {
 	private CONTROLLER_Access() {
 	}
 
-	public void login(String username, String passwort, String db) {
+	public void login(String username, String passwort, String db, String ip) {
 
 		this.aes = new AES_verschluesselung();
 		this.mvecModel = new ArrayList<MODEL_Konto>();
@@ -58,6 +58,7 @@ public class CONTROLLER_Access {
 			mstrUserName =  username;
 			mstrPasswort = passwort;
 			mstrDatenbankName = db;
+			mstrHostName = ip;
 
 			// Datenbanktreiber fuer JDBC Schnittstellen laden.
 			Class.forName("com.mysql.jdbc.Driver");
@@ -98,14 +99,22 @@ public class CONTROLLER_Access {
 
 				
 					MODEL_Konto k = new MODEL_Konto(
-							aes.entschluesselnAES(result.getString("k.name")),
-							aes.entschluesselnAES(result
-									.getString("k.bankleitzahl")),
-							aes.entschluesselnAES(result
-									.getString("k.kontonummer")),
-							aes.entschluesselnAES(result.getString("k.betrag")),
-							aes.entschluesselnAES(result.getString("k.minimum")),
-							result.getInt("k.K_ID"));
+							
+							result.getInt("id"),
+							aes.entschluesselnAES(result.getString("mstrDienst")), 
+							aes.entschluesselnAES(result.getString("mstrUsername")),
+							aes.entschluesselnAES(result.getString("mstrantworta")),
+							aes.entschluesselnAES(result.getString("mstrantwortb")),
+							aes.entschluesselnAES(result.getString("mstremail")),
+							aes.entschluesselnAES(result.getString("mstrerstellt")), 
+							aes.entschluesselnAES(result.getString("mstrfragea")),
+							aes.entschluesselnAES(result.getString("mstrfrageb")),
+							aes.entschluesselnAES(result.getString("mstrgeanertam")), 
+							aes.entschluesselnAES(result.getString("mstrkontakt")),
+							aes.entschluesselnAES(result.getString("mstrpasswort")),
+							aes.entschluesselnAES(result.getString("mstrresetemail")),
+							aes.entschluesselnAES(result.getString("mstrreseturl")),
+							aes.entschluesselnAES(result.getString("mstrwebseite")));
 
 					mvecModel.add(k);
 			}
@@ -131,21 +140,6 @@ public class CONTROLLER_Access {
 		}
 	}
 
-	public void SQLNeuErstellen(String kuerzel) {
-
-		try {
-			// neue Datenbank erstellen
-			ArrayList<String> mvecMod = CONTROLLER_Statments.createDatenbank(kuerzel);
-
-			for (int i = 0; i < mvecMod.size(); i++) {
-				SQLModifizieren(mvecMod.get(i));
-			}
-		} catch(Exception ex) {
-			ex.printStackTrace();
-
-		}
-	}
-
 	public void auslesen() {
 		try{
 		mvecModel.clear();
@@ -159,22 +153,7 @@ public class CONTROLLER_Access {
 	}
 
 
-	public ArrayList<MODEL_Konto> getObjXML()
-	{
-		for (int i = 0; i<this.mvecModel.size();i++)
-			if (this.mvecModel.get(i) instanceof MODEL_Konto) 
-			{
-				((MODEL_Konto) this.mvecModel.get(i)).setMintMin(aes.verschluesselnAES((((MODEL_Konto) this.mvecModel.get(i)).getMintMin())));
-				((MODEL_Konto) this.mvecModel.get(i)).setMstrBetrag(aes.verschluesselnAES(((MODEL_Konto) this.mvecModel.get(i)).getMstrBetrag()));
-				((MODEL_Konto) this.mvecModel.get(i)).setMstrBLZ(aes.verschluesselnAES(((MODEL_Konto) this.mvecModel.get(i)).getMstrBLZ()));
-				((MODEL_Konto) this.mvecModel.get(i)).setMstrKnr(aes.verschluesselnAES(((MODEL_Konto) this.mvecModel.get(i)).getMstrKnr()));
-				((MODEL_Konto) this.mvecModel.get(i)).setMstrName(aes.verschluesselnAES(((MODEL_Konto) this.mvecModel.get(i)).getMstrName()));
-			}                 
-		
-		
-		return this.mvecModel;
-		
-	}
+	
 	
 	
 	
