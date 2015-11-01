@@ -7,11 +7,11 @@
 <title>Failed</title>
 <h1>Es ist ein Fehler aufgetreten</h1>
 
-<meta http-equiv="refresh" content="2; URL=http://dfch-ludwig.de:8080/jsp/">
+<meta http-equiv="refresh" content="2; URL=http://raspberrypi:8080/jsp_PWD">
 
 </head>
 <body>
-	<p>Sie werden auf die Hauptseite weitergeleitet, <a href="http://dfch-ludwig.de:8080/jsp/" >klicken Sie hier</a>!
+	<p>Sie werden auf die Hauptseite weitergeleitet, <a href="http://raspberrypi:8080/jsp_PWD/" >klicken Sie hier</a>!
 	
 </body>
 </html>

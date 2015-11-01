@@ -57,7 +57,7 @@ public class DELETE_Konto_SQL extends HttpServlet {
 		RequestDispatcher rd = request.getRequestDispatcher(CONTROLLER_Statments.redirect.Controller.toString());
 		rd.include(request, response);
 		
-		response.sendRedirect(CONTROLLER_Statments.redirect.login_success.toString());		
+		response.sendRedirect(CONTROLLER_Statments.redirect.VIEW_Konto.toString());		
 		
 
 	

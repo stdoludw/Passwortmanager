@@ -47,7 +47,7 @@ public class CONTROLLER extends HttpServlet {
 				as.auslesen();
 
 				session.setAttribute(CONTROLLER_Statments.session.mvecModel.toString(), as.getMvecModel());
-				response.sendRedirect(CONTROLLER_Statments.redirect.login_success.toString());
+				response.sendRedirect(CONTROLLER_Statments.redirect.VIEW_Konto.toString());
 			} else {
 				response.sendRedirect(CONTROLLER_Statments.redirect.error.toString());
 			}

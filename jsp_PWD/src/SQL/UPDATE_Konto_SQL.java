@@ -48,20 +48,28 @@ public class UPDATE_Konto_SQL extends HttpServlet {
 			 HttpSession session = request.getSession(true);
 
 		  session.setAttribute(CONTROLLER_Statments.session.Update_Konto.toString(),new MODEL_Konto(
-				request.getParameter("i_konto_kontoinhaber"),		
-				request.getParameter("i_konto_kontonummer"),
-				request.getParameter("i_konto_bankleitzahl"),
-				request.getParameter("i_konto_betrag"),
-				request.getParameter("i_konto_minimum"),
-				Integer.valueOf(request.getParameter("i_konto_id"))
-				));
+				  Integer.valueOf(request.getParameter("mintID")),
+					request.getParameter("mstrDienst"),		
+					request.getParameter("mstrUsername"),
+					request.getParameter("mstrantworta"),
+					request.getParameter("mstrantwortb"),
+					request.getParameter("mstremail"),
+			request.getParameter("mstrerstellt"),
+			request.getParameter("mstrfragea"),
+			request.getParameter("mstrfrageb"),
+			request.getParameter("mstrgeanertam"),
+			request.getParameter("mstrkontakt"),
+			request.getParameter("mstrpasswort"),
+			request.getParameter("mstrresetemail"),
+			request.getParameter("mstrreseturl"),
+			request.getParameter("mstrwebseite")));
 
 		session.setAttribute("site",CONTROLLER_Statments.caller.Update_Konto.toString()); 
 		out.println("Konto erfolgreich geupdatet");
 		RequestDispatcher rd = request.getRequestDispatcher(CONTROLLER_Statments.redirect.Controller.toString());
 		rd.include(request, response);
 		
-		response.sendRedirect(CONTROLLER_Statments.redirect.login_success.toString());
+		response.sendRedirect(CONTROLLER_Statments.redirect.VIEW_Konto.toString());
 		
 	}
 

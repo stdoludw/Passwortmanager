@@ -60,36 +60,52 @@ ArrayList<MODEL_Konto> tmp = (ArrayList<MODEL_Konto>)session.getAttribute(CONTRO
 
 for (int i = 0;i<tmp.size();i++)
 {
+%>
+
 	
-	out.print(((MODEL_Konto)tmp.get(i)).getMintID());
-	%>
-	</td>
-	<td>
-	<%
-	out.print(((MODEL_Konto)tmp.get(i)).getMstrName());
-	%>
-	</td>
-	<td>
-	<%
-	out.print(((MODEL_Konto)tmp.get(i)).getMstrKnr());
-	%>
-	</td>
-	<td>
-	<%
-	out.print(((MODEL_Konto)tmp.get(i)).getMstrBLZ());
-	%>
-	</td>
-	<td>
-	<%
-	out.print(((MODEL_Konto)tmp.get(i)).getMstrBetrag());
-	%>
-	</td>
-	<td>
-	<%
-	out.print(((MODEL_Konto)tmp.get(i)).getMintMin());
-	%>
-	</td>
-	<%
+	
+	</td><td>
+	<%= konto.getMstrDienst() %>
+	
+		</td><td>
+	<%= konto.getMstrwebseite() %>
+
+	</td><td>
+	<%= konto.getMstrresetemail() %>
+	
+	</td><td>
+	<%= konto.getMstrkontakt() %>
+	
+		</td><td>
+	<%= konto.getMstrreseturl() %>
+	</td><td>
+
+	<%= konto.getMstrUsername() %>
+	</td><td>
+
+	<%= konto.getMstrpasswort() %>
+	</td><td>
+
+	<%= konto.getMstremail() %>
+	</td><td>
+
+	<%= konto.getMstrerstellt() %>
+	</td><td>
+
+	<%= konto.getMstrgeanertam() %>
+	</td><td>
+
+	<%= konto.getMstrfragea() %>
+	</td><td>
+
+	<%= konto.getMstrantworta() %>
+	</td><td>
+
+	<%= konto.getMstrfrageb() %>
+	</td><td>
+
+	<%= konto.getMstrantwortb() %>
+
 	
 	
 }

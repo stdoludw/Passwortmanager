@@ -77,11 +77,7 @@ public class CONTROLLER_Statments {
 	}
 
 	public enum redirect {
-		login_success {
-			public String toString() {
-				return "login-success.jsp";
-			}
-		},
+	
 		error {
 			public String toString() {
 				return "error.jsp";
@@ -200,3 +196,5 @@ public class CONTROLLER_Statments {
 	}
 
 }
+
+
