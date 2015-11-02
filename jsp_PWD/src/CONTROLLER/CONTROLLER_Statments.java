@@ -11,12 +11,7 @@ public class CONTROLLER_Statments {
 				return "index";
 			}
 		},
-		usermanagement {
-			public String toString() {
-				return "CREATE_User";
-			}
-		},
-
+		
 		Insert_Konto {
 			public String toString() {
 				return "INSERT_Konto_SQL";
@@ -32,17 +27,6 @@ public class CONTROLLER_Statments {
 			public String toString() {
 				return "DELETE_Konto_SQL";
 			}
-		},
-
-		CONTROLLER_Import {
-			public String toString() {
-				return "CONTROLLER_Import";
-			}
-		},
-		CONTROLLER_Export {
-			public String toString() {
-				return "CONTROLLER_Export";
-			}
 		}
 	}
 
@@ -50,12 +34,6 @@ public class CONTROLLER_Statments {
 		mvecModel {
 			public String toString() {
 				return "mvecMODEL";
-			}
-		},
-
-		filename {
-			public String toString() {
-				return "filename";
 			}
 		},
 
@@ -119,14 +97,14 @@ public class CONTROLLER_Statments {
 		},
 		Hauptmenue {
 			public String toString() {
-				return "login-success.jsp";
+				return "VIEW_Konto.jsp";
 			}
 		}
 
 	};
 
 	public static String ViewKonto() {
-		return "select * from Konto k;";
+		return "select * from password_db.konto;";
 
 	}
 
@@ -148,7 +126,7 @@ public class CONTROLLER_Statments {
 			String mstremail, String mstrerstellt, String mstrfragea, String mstrfrageb, String mstrgeanertam,
 			String mstrkontakt, String mstrpasswort, String mstrresetemail, String mstrreseturl, String mstrwebseite,
 			AES_verschluesselung aes) {
-		return "insert into Konto  (mstrDienst, mstrUsername,  mstrantworta,  mstrantwortb,"
+		return "insert into konto  (mstrDienst, mstrUsername,  mstrantworta,  mstrantwortb,"
 				+ "mstremail,  mstrerstellt,  mstrfragea,  mstrfrageb,"
 				+ "mstrgeanertam, mstrkontakt, mstrpasswort, mstrresetemail,"
 				+ "mstrreseturl,   mstrwebseite ) VALUES( " + "\'" + aes.verschluesselnAES(mstrDienst) + "\', " + "\'"
@@ -168,7 +146,7 @@ public class CONTROLLER_Statments {
 			String mstrgeanertam, String mstrkontakt, String mstrpasswort, String mstrresetemail, String mstrreseturl,
 			String mstrwebseite, AES_verschluesselung aes) {
 
-		return "update Konto set " + "mstrDienst = " + "\'" + aes.verschluesselnAES(mstrDienst) + "\', "
+		return "update konto set " + "mstrDienst = " + "\'" + aes.verschluesselnAES(mstrDienst) + "\', "
 				+ "mstrUsername =  " + "\'" + aes.verschluesselnAES(mstrUsername) + "\' ," + "mstrantworta =" + "\'"
 				+ aes.verschluesselnAES(mstrantworta) + "\' ," + "mstrantwortb =" + "\'"
 				+ aes.verschluesselnAES(mstrantwortb) + "\' ," + "mstremail =" + "\'" + aes.verschluesselnAES(mstremail)
@@ -180,12 +158,12 @@ public class CONTROLLER_Statments {
 				+ aes.verschluesselnAES(mstrpasswort) + "\' ," + " mstrresetemail =" + "\'"
 				+ aes.verschluesselnAES(mstrresetemail) + "\' ," + "mstrreseturl =" + "\'"
 				+ aes.verschluesselnAES(mstrreseturl) + "\' ," + " mstrwebseite =" + "\'"
-				+ aes.verschluesselnAES(mstrwebseite) + "\'" + "where mintID = " + id;
+				+ aes.verschluesselnAES(mstrwebseite) + "\'" + "where id = " + id;
 
 	}
 
 	public static String DeleteKonto(int PK) {
-		return "delete from Konto where mintID = " + PK + ";";
+		return "delete from konto where id = " + PK + ";";
 
 	}
 

@@ -58,49 +58,49 @@ for (int i = 0;i<tmp.size();i++)
 
       	  
 <form action="<%=CONTROLLER_Statments.caller.Update_Konto.toString() %>" method="POST">
-Konto ID<input class="w3-input" style="width:95%" type="text" name="mintID" size="20" 
+K_ID<input class="w3-input" style="width:95%" type="text" name="mintID" size="20" 
 value="<%= konto.getMintID() %>">
 
-Name des Dienst<input class="w3-input" style="width:95%" type="text" name="mstrDienst" size="20"> 
+Dienst Namet<input class="w3-input" style="width:95%" type="text" name="mstrDienst" size="20"
 value="<%= konto.getMstrDienst() %>">
 
-Webseite des Dienst<input class="w3-input" style="width:95%" type="text" name="mstrwebseite" size="20" >
+Dienst Webseite<input class="w3-input" style="width:95%" type="text" name="mstrwebseite" size="20" 
 value="<%= konto.getMstrwebseite() %>">
 
-Reset E-Mail<input class="w3-input" style="width:95%" type="text" name="mstrresetemail" size="20" >
+Resetemail Adresse<input class="w3-input" style="width:95%" type="text" name="mstrresetemail" size="20" 
 value="<%= konto.getMstrresetemail() %>">
 
-Kontakadresse<input class="w3-input" style="width:95%" type="text" name="mstrkontakt" size="20" >
+Dienst Kontakt<input class="w3-input" style="width:95%" type="text" name="mstrkontakt" size="20" 
 value="<%= konto.getMstrkontakt() %>">
 
-Reset URL<input class="w3-input" style="width:95%" type="text" name="mstrreseturl" size="20" >
+Reset URL<input class="w3-input" style="width:95%" type="text" name="mstrreseturl" size="20" 
 value="<%= konto.getMstrreseturl() %>">
 
-Username<input class="w3-input" style="width:95%" type="text" name="mstrUsername" size="20" >
+Username<input class="w3-input" style="width:95%" type="text" name="mstrUsername" size="20" 
 value="<%= konto.getMstrUsername() %>">
 
-Passwort<input class="w3-input" style="width:95%" type="text" name="mstrpasswort" size="20" >
+Passwort<input class="w3-input" style="width:95%" type="text" name="mstrpasswort" size="20" 
 value="<%= konto.getMstrpasswort() %>">
 
-E-Mail<input class="w3-input" style="width:95%" type="text" name="mstremail" size="20" >
+E-Mail<input class="w3-input" style="width:95%" type="text" name="mstremail" size="20" 
 value="<%= konto.getMstremail() %>">
 
-Geändert am<input class="w3-input" style="width:95%" type="text" name="mstrerstellt" size="20" >
+Erstellt am<input class="w3-input" style="width:95%" type="text" name="mstrerstellt" size="20" 
 value="<%= konto.getMstrerstellt() %>">
 
-Erstellt am<input class="w3-input" style="width:95%" type="text" name="mstrgeanertam" size="20" >
+Geandert am<input class="w3-input" style="width:95%" type="text" name="mstrgeanertam" size="20" 
 value="<%= konto.getMstrgeanertam() %>">
 
-Reset Frage A<input class="w3-input" style="width:95%" type="text" name="mstrfragea" size="20" >
+Frage A<input class="w3-input" style="width:95%" type="text" name="mstrfragea" size="20" 
 value="<%= konto.getMstrfragea() %>">
 
-Reset Antwort A<input class="w3-input" style="width:95%" type="text" name="mstrantworta" size="20" >
+Antwort A<input class="w3-input" style="width:95%" type="text" name="mstrantworta" size="20" 
 value="<%= konto.getMstrantworta() %>">
 
-Reset Frage B<input class="w3-input" style="width:95%" type="text" name="mstrfrageb" size="20" >
+Frage B<input class="w3-input" style="width:95%" type="text" name="mstrfrageb" size="20" 
 value="<%= konto.getMstrfrageb() %>">
 
-Reset Antwort B<input class="w3-input" style="width:95%" type="text" name="mstrantwortb" size="20" >
+Antwort B<input class="w3-input" style="width:95%" type="text" name="mstrantwortb" size="20" 
 value="<%= konto.getMstrantwortb() %>">
 
 

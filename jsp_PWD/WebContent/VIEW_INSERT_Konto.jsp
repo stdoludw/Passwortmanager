@@ -38,21 +38,21 @@
 
 	        	  
 <form action="<%=CONTROLLER_Statments.caller.Insert_Konto.toString() %>" method="POST">
-Name des Dienst<input class="w3-input" style="width:95%" type="text" name="mstrDienst" size="20"> 
-Webseite des Dienst<input class="w3-input" style="width:95%" type="text" name="mstrwebseite" size="20" >
-Reset E-Mail<input class="w3-input" style="width:95%" type="text" name="mstrresetemail" size="20" >
-Kontakadresse<input class="w3-input" style="width:95%" type="text" name="mstrkontakt" size="20" >
+Dienst Name<input class="w3-input" style="width:95%" type="text" name="mstrDienst" size="20"> 
+Dienst Webseite<input class="w3-input" style="width:95%" type="text" name="mstrwebseite" size="20" >
+Resetemail Adresse<input class="w3-input" style="width:95%" type="text" name="mstrresetemail" size="20" >
+Dienst Kontakt<input class="w3-input" style="width:95%" type="text" name="mstrkontakt" size="20" >
 Reset URL<input class="w3-input" style="width:95%" type="text" name="mstrreseturl" size="20" >
 
 Username<input class="w3-input" style="width:95%" type="text" name="mstrUsername" size="20" >
 Passwort<input class="w3-input" style="width:95%" type="text" name="mstrpasswort" size="20" >
 E-Mail<input class="w3-input" style="width:95%" type="text" name="mstremail" size="20" >
-Geändert am<input class="w3-input" style="width:95%" type="text" name="mstrerstellt" size="20" >
-Erstellt am<input class="w3-input" style="width:95%" type="text" name="mstrgeanertam" size="20" >
-Reset Frage A<input class="w3-input" style="width:95%" type="text" name="mstrfragea" size="20" >
-Reset Antwort A<input class="w3-input" style="width:95%" type="text" name="mstrantworta" size="20" >
-Reset Frage B<input class="w3-input" style="width:95%" type="text" name="mstrfrageb" size="20" >
-Reset Antwort B<input class="w3-input" style="width:95%" type="text" name="mstrantwortb" size="20" >
+Geaendert am<input class="w3-input" style="width:95%" type="text" name="mstrgeanertam" size="20" >
+Erstellt am<input class="w3-input" style="width:95%" type="text" name="mstrerstellt" size="20" >
+Frage A<input class="w3-input" style="width:95%" type="text" name="mstrfragea" size="20" >
+Antwort A<input class="w3-input" style="width:95%" type="text" name="mstrantworta" size="20" >
+Frage B<input class="w3-input" style="width:95%" type="text" name="mstrfrageb" size="20" >
+Antwort B<input class="w3-input" style="width:95%" type="text" name="mstrantwortb" size="20" >
 
 <p></p>
 	

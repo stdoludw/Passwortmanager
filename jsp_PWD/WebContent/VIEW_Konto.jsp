@@ -21,9 +21,7 @@
 	    class="w3-closenav w3-large">Close</a>
       <a href="<%=CONTROLLER_Statments.menu.login.toString()%>"  >Login</a>
   <a href="<%=CONTROLLER_Statments.menu.Hauptmenue.toString()%>">Hauptmenue</a>
-  <a href="<%=CONTROLLER_Statments.menu.Benutzerverwaltung.toString()%>"> Benutzerverwaltung </a>
-      <a href="<%=CONTROLLER_Statments.menu.Export.toString()%>"> Datenexport </a>
-    <a href="<%=CONTROLLER_Statments.menu.Import.toString()%>"> Datenimport </a>
+
 </nav>
 
 <header class="w3-container w3-blue-grey">
@@ -42,12 +40,25 @@
 <table class="w3-table w3-striped w3-bordered">
 <thead>
 <tr class="w3-theme">
-<th> K_ID</th> 
-<th> Kontoinhaber</th> 
-<th> Kontonummer </th> 
-<th> Bankleitzahl</th> 
-<th> Betrag</th> 
-<th> Minimum</th> 
+
+			<th>K_ID</th>
+			<th>Dienst Name</th>
+			<th>Dienst Webseite</th>
+			<th>Resetemail Adresse</th>
+			<th>Dienst Kontakt</th>
+			<th>Reset URL</th>
+
+			<th>Username</th>
+			<th>Passwort</th>
+			<th>E-Mail</th>
+			<th>Erstellt am</th>
+
+
+			<th>Geandert am</th>
+			<th>Frage A</th>
+			<th>Antwort A</th>
+			<th>Frage B</th>
+			<th>Antwort B</th>
 </tr> 
 </thead>
 <tbody>
@@ -56,57 +67,59 @@
 	
 <%
 
-ArrayList<MODEL_Konto> tmp = (ArrayList<MODEL_Konto>)session.getAttribute(CONTROLLER_Statments.session.mvecModel.toString());
+ArrayList<MODEL_Konto> konto = (ArrayList<MODEL_Konto>)session.getAttribute(CONTROLLER_Statments.session.mvecModel.toString());
 
-for (int i = 0;i<tmp.size();i++)
+for (int i = 0;i<konto.size();i++)
 {
 %>
-
-	
-	
-	</td><td>
-	<%= konto.getMstrDienst() %>
-	
-		</td><td>
-	<%= konto.getMstrwebseite() %>
-
-	</td><td>
-	<%= konto.getMstrresetemail() %>
+</tr>
 	
 	</td><td>
-	<%= konto.getMstrkontakt() %>
+	<%= konto.get(i).getMintID() %>
+	</td><td>
+	<%= konto.get(i).getMstrDienst() %>
 	
 		</td><td>
-	<%= konto.getMstrreseturl() %>
+	<%= konto.get(i).getMstrwebseite() %>
+
 	</td><td>
-
-	<%= konto.getMstrUsername() %>
-	</td><td>
-
-	<%= konto.getMstrpasswort() %>
-	</td><td>
-
-	<%= konto.getMstremail() %>
-	</td><td>
-
-	<%= konto.getMstrerstellt() %>
-	</td><td>
-
-	<%= konto.getMstrgeanertam() %>
-	</td><td>
-
-	<%= konto.getMstrfragea() %>
-	</td><td>
-
-	<%= konto.getMstrantworta() %>
-	</td><td>
-
-	<%= konto.getMstrfrageb() %>
-	</td><td>
-
-	<%= konto.getMstrantwortb() %>
-
+	<%= konto.get(i).getMstrresetemail() %>
 	
+	</td><td>
+	<%= konto.get(i).getMstrkontakt() %>
+	
+		</td><td>
+	<%= konto.get(i).getMstrreseturl() %>
+	</td><td>
+
+	<%= konto.get(i).getMstrUsername() %>
+	</td><td>
+
+	<%= konto.get(i).getMstrpasswort() %>
+	</td><td>
+
+	<%= konto.get(i).getMstremail() %>
+	</td><td>
+
+	<%= konto.get(i).getMstrerstellt() %>
+	</td><td>
+
+	<%= konto.get(i).getMstrgeanertam() %>
+	</td><td>
+
+	<%= konto.get(i).getMstrfragea() %>
+	</td><td>
+
+	<%= konto.get(i).getMstrantworta() %>
+	</td><td>
+
+	<%= konto.get(i).getMstrfrageb() %>
+	</td><td>
+
+	<%= konto.get(i).getMstrantwortb() %>
+	</td>
+	
+	<%
 	
 }
 
