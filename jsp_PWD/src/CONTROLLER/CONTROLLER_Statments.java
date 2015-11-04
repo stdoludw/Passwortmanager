@@ -61,7 +61,6 @@ public class CONTROLLER_Statments {
 				return "error.jsp";
 			}
 		},
-
 		Controller {
 			public String toString() {
 				return "Controller";
@@ -107,18 +106,23 @@ public class CONTROLLER_Statments {
 		return "select * from password_db.konto;";
 
 	}
+	
+	public static String ViewPassword()
+	{
+		return "https://www.passwort-generator.com/";
+	}
 
 	public static ArrayList<String> createDB() {
 		ArrayList<String> tmp = new ArrayList<String>();
 
 		tmp.add("create database password_db;");
 		tmp.add("use password_db;");
-		tmp.add("create table konto(" + "mintID int NOT NULL AUTO_INCREMENT, " + " mstrDienst      varchar(255),"
+		tmp.add("create table konto(" + "id int NOT NULL AUTO_INCREMENT, " + " mstrDienst      varchar(255),"
 				+ " mstrUsername varchar(255)," + " mstrantworta varchar(255)," + " mstrantwortb varchar(255),"
 				+ " mstremail       varchar(255)," + " mstrerstellt    varchar(255)," + " mstrfragea varchar(255),"
 				+ " mstrfrageb varchar(255)," + " mstrgeanertam   varchar(255)," + " mstrkontakt varchar(255),"
 				+ " mstrpasswort varchar(255)," + " mstrresetemail  varchar(255)," + " mstrreseturl varchar(255),"
-				+ " mstrwebseite    varchar(255)" + " PRIMARY KEY (mintID)" + ");");
+				+ " mstrwebseite    varchar(255)" + ", PRIMARY KEY (id)" + ");");
 		return tmp;
 	}
 

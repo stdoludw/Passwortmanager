@@ -37,11 +37,13 @@ public class CONTROLLER extends HttpServlet {
 			
 			String name = request.getParameter("i_username");
 			String password = request.getParameter("i_passwort");
+			String password_aes = request.getParameter("i_passwort_aes");
 			String db = request.getParameter("i_datenbank");
 			String ip = request.getParameter("i_host");
-
+			
+			
 			as = CONTROLLER_Access.init();
-			as.login(name, password, db,ip);
+			as.login(name, password, db,ip,password_aes);
 
 			if (as.status()) {
 				as.auslesen();

@@ -21,6 +21,7 @@
 	    class="w3-closenav w3-large">Close</a>
       <a href="<%=CONTROLLER_Statments.menu.login.toString()%>"  >Login</a>
   <a href="<%=CONTROLLER_Statments.menu.Hauptmenue.toString()%>">Hauptmenue</a>
+  <a href="<%=CONTROLLER_Statments.ViewPassword() %>">Passwortgenerator</a>
 
 </nav>
 

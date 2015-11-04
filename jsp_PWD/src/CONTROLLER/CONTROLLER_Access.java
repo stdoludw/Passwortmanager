@@ -46,14 +46,14 @@ public class CONTROLLER_Access {
 	private CONTROLLER_Access() {
 	}
 
-	public void login(String username, String passwort, String db, String ip) {
+	public void login(String username, String passwort, String db, String ip, String aes) {
 
 		this.aes = new AES_verschluesselung();
 		this.mvecModel = new ArrayList<MODEL_Konto>();
 		
 		try {
 			// neuen Vector erstellen
-			this.aes.setkey(passwort);
+			this.aes.setkey(aes);
 			
 			mstrUserName =  username;
 			mstrPasswort = passwort;
